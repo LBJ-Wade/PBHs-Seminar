@@ -1,4 +1,4 @@
-\documentclass[handout]{beamer}
+\documentclass{beamer}
 % Locale
 \usepackage[british]{babel}
 \usepackage[english=british]{csquotes} % le paraentesi angolate non sono belle, meglio questo
@@ -203,7 +203,7 @@
 		\begin{block}{Mass \& time of formation \cite{hawking1971gravitationally}}
 			Regardless of the specific formation mechanism
 			\[
-			M_{PBH} \sim \frac{c^3 t}{G} \sim 10^{15} \left(\frac{t}{10^{-23} \si{\second}}\right) \si{\g}.
+			M_{PBH} \sim \gamma\frac{c^3 t}{G} \sim 10^{15} \left(\frac{t}{10^{-23} \si{\second}}\right) \si{\g}.
 			\]
 		\end{block}
 	
@@ -231,7 +231,6 @@
 	
 	\end{frame}
 
-	\subsection{Formation from large inhomogeneities}
 	\begin{frame}
 		\frametitle{Collapse from inhomogeneities}
 		\begin{figure}
@@ -240,8 +239,12 @@
 		\end{figure}
 	\begin{itemize}
 		\item Large inhomogeneities needed: \(\delta \ge \delta _c  \sim w = \frac{1}{3}\) \cite{osti_4109902}.
-		\item \(P(\delta)\) is gaussian \(\implies\) \(\beta(M) \sim exp\left(-\frac{\delta_c^2}{2\sigma(M)^2}\right) \ll 1\).
-				Deviations from the gaussian distribution are needed.
+		\item {\small \(P(\delta)\) is gaussian} \(\implies\) \(\begin{cases}
+		\beta(M) \sim \gamma \frac{\sigma(M)}{\delta_c}\exp\left(-\frac{\delta_c^2}{2\sigma(M)^2}\right) \ll 1\\
+		\beta(M) \sim 10^{-8} \implies \Omega_{PBH}(t_0) \sim 1.
+		\end{cases}
+		\)
+				%Deviations from the gaussian distribution are needed.
 	\end{itemize}
 	\end{frame}
 
@@ -377,6 +380,11 @@
 		\column{0.6\textwidth}
 		\includegraphics[scale=0.14]{Immagini/Constraints.png}
 		\column{0.4\textwidth}
+		\textbf{Window D}:
+		\begin{itemize}
+			\item {\small SLABs cannot be in galactic halos but could be \emph{intergalactic} DM.}
+			\item {\small BH in GN have \(M\sim 10^{11}M_{\odot}\) but PBH are unlikely to be this large at formation.}
+		\end{itemize}
 		
 	\end{columns}
 
@@ -399,17 +407,17 @@
 \begin{frame}
 	\frametitle{Lensing events}
 	\begin{figure}
-		\includegraphics[scale=0.17]{Immagini/Lensing.png}
-		\caption{\tiny Microlensing events with mass estimates in the mass gap. Top panel: Light curves. Bottom panel: Mass-distance posterior probability densities along with the 95\% confidence level contour.}
+		\includegraphics[scale=0.23]{Immagini/Lensing.png}
+%		\caption{\tiny Microlensing events with mass estimates in the mass gap. Top panel: Light curves. Bottom panel: Mass-distance posterior probability densities along with the 95\% confidence level contour.}
 	\end{figure}
 	Among others OGLE\cite{Wyrzykowski_2020} has detected lensing events probably due to black holes, whose mass function peaks between \(0.8\) and \(5M_{\odot}\), overlapping with the mass gap of \(2-5M_{\odot}\) where black holes are not expected to form via gravitational collapse.
 \end{frame}
 
 \begin{frame}
-	\frametitle{Ultra Faint Dwarf Galaxies}
+	\frametitle{Ultra Faint Dwarf Galaxies \cite{Clesse:2017bsw}}
 	\begin{figure}
-		\includegraphics[scale=0.22]{Immagini/UFDG.png}
-		\caption{\tiny Absolute magnitude vs. the half-light ration of dwarf galaxies. Mass-to-light ratio based on toy model with uniform spherical halo with mass, radius and virial velocity relations calibrated on Eridanus II.\cite{Clesse:2017bsw}}
+		\includegraphics[scale=0.27]{Immagini/UFDG.png}
+%		\caption{\tiny Absolute magnitude vs. the half-light ration of dwarf galaxies. Mass-to-light ratio based on toy model with uniform spherical halo with mass, radius and virial velocity relations calibrated on Eridanus II.}
 	\end{figure}
 
 	\begin{itemize}
@@ -447,7 +455,29 @@
 \vskip 17pt
 %\nocite{*}
 \textbf{Bibliography}
-%\printbibliography
+\printbibliography
+\end{frame}
+
+\begin{frame}
+\frametitle{Density Contrast threshold \cite{osti_4109902}}
+Spherically symmetric perturbation:
+\[
+ds^2 = d\tau^2 - S^2\left[\frac{dr^2}{1-\kappa r^2} + r^2d\Omega^2\right]
+\implies 
+\begin{cases}
+t_c \sim t_0\delta_0^{-\frac{3(1+f)}{2(1+3f)}}\\
+S_c \sim R_0\delta_0^{-\frac{1}{(1+3f)}}
+\end{cases}
+\]
+Condition for collapse:
+\[
+\sqrt{\frac{\pi w}{G\rho}} = \frac{2\pi}{k_J}< S_c < R_H \simeq \frac{1}{2H}
+\]
+\begin{block}{Collapse condition}
+	\[1 > \delta_0 \left(\frac{R_0}{t_0}\right)^2 > w \sim \frac{1}{3}. \]
+\end{block}
+\centering
+\(\mathrightghost\) Numerical simulations argue \(\delta_c \sim 0.45\) \(\mathleftghost\)
 \end{frame}
 
 \end{document}
